@@ -271,8 +271,10 @@ class Tes extends MY_Controller {
 
         $skor = round($skor);
         
-        // $peserta['no_doc'] = "{$peserta['no_doc']}/AIMTP/{$peserta['bulan']}/{$peserta['tahun']}";
-        $peserta['no_doc'] = "100000/AIMTP/{$peserta['bulan']}/{$peserta['tahun']}";
+        $peserta['no_doc'] = "{$peserta['no_doc']}/AIMTP/{$peserta['bulan']}/{$peserta['tahun']}";
+
+        $peserta['config'] = $this->tes->config();
+        $peserta['id_tes'] = $peserta['id_tes'];
         
         $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
         $fontData = $defaultFontConfig['fontdata'];
@@ -302,9 +304,15 @@ class Tes extends MY_Controller {
             ], 
         ]);
 
-        $mpdf->SetTitle("{$peserta['nama']}");
-        $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat', $peserta, TRUE));
-        $mpdf->Output("{$peserta['nama']}.pdf", "I");
+        if($tes['tipe_tes'] == 'Tes TOEFL Aimskilful'){
+            $mpdf->SetTitle("{$peserta['nama']}");
+            $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat', $peserta, TRUE));
+            $mpdf->Output("{$peserta['nama']}.pdf", "I");
+        } else if($tes['tipe_tes'] == 'Tes TOEFL Kolaborasi Perusahaan' || $tes['tipe_tes'] == 'Tes TOEFL Kolaborasi Universitas'){
+            $mpdf->SetTitle("{$peserta['nama']}");
+            $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat-kolaborasi', $peserta, TRUE));
+            $mpdf->Output("{$peserta['nama']}.pdf", "I");
+        }
 
     }
 

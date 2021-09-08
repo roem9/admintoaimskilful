@@ -43,6 +43,13 @@
             padding: 0;
         }
 
+        .logo{
+            /* width: 210px; */
+			position: absolute;
+            right: 350px;
+			top: 10px;
+        }
+
         .qrcode{
             /* width: 210px; */
 			position: absolute;
@@ -193,13 +200,17 @@
         }
 
         @page :first {
-            background-image: url("<?= base_url()?>assets/img/sertifikat-umum.jpg");
+            background-image: url("<?= base_url()?>assets/img/sertifikat-kolaborasi.jpg");
             background-image-resize: 6;
         }
         
     </style>
 </head>
     <body style="text-align: center">
+        <div class="logo">
+            <img src="<?= base_url()?>/assets/logo/<?= $id_tes?>.png" width=45 alt="">
+            <!-- <img src="<?= $config[1]['value']?>/assets/qrcode/<?= $id?>.png" width=60 alt=""> -->
+        </div>
         <div class="qrcode">
             <img src="<?= $config[1]['value']?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
         </div>
