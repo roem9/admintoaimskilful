@@ -57,7 +57,7 @@
             width: 140px;
 			position: absolute;
             right: 15px;
-			top: 25px;
+			top: 25px; 
             font-size: 12px;
             font-family: 'times';
             word-spacing: 3px;
