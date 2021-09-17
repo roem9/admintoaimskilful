@@ -201,7 +201,7 @@
 </head>
     <body style="text-align: center">
         <div class="qrcode">
-            <img src="<?= $config[1]['value']?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
+            <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
         </div>
         <div class="nilai"><p style="text-align: center; margin: 0px"><?= round($skor)?></p></div>
         <div class="nama"><p style="text-align: center; margin: 0px"><?= $nama?></p></div>

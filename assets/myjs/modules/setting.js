@@ -21,6 +21,7 @@ $("#pengaturanAkun .btnEdit").click(function(){
             let form = "#pengaturanAkun";
             let background = $(form+" [name='background']").val();
             let password = $(form+" [name='password']").val();
+            let id_admin = $(form+" [name='id_admin']").val();
             
             let eror = required(form);
             
@@ -31,7 +32,7 @@ $("#pengaturanAkun .btnEdit").click(function(){
                     text: 'lengkapi isi form terlebih dahulu'
                 })
             } else {
-                data = {background: background, password: password}
+                data = {id_admin: id_admin, background: background, password: password}
                 let result = ajax(url_base+"home/edit_pengaturan", "POST", data);
 
                 console.log(result)

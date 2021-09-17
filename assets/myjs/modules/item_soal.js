@@ -246,6 +246,11 @@ $(document).on("click", "#editItem .btnAddForm", function() {
     $("#editItem [name='choice_jawaban']").append(`<option value='Pilihan `+ String.fromCharCode(i) +`'>Pilihan `+ String.fromCharCode(i) +`</option>`);
 })
 
+$(document).on("change keyup", "[name='pilihan[]']", function(){
+    $("[name='jawaban']").val("");
+    $("[name='choice_jawaban']").val("");
+})
+
 $(document).on("change", "#addItem [name='choice_jawaban']", function() {
     let value = $(this).val();
     let element = $("#addItem .choice label:contains("+value+")").prev();
@@ -287,7 +292,9 @@ $(document).on("click", "#addItem .btnAdd", function(){
 
                 $(form+" [name='pilihan[]']").each(function(){
                     if($(this).val() != ""){
-                        pilihan += `"`+$(this).val()+`",`;
+                        data_pilihan = $(this).val();
+                        data_pilihan = data_pilihan.replace(/"/g, '&quot;');
+                        pilihan += `"`+data_pilihan+`",`;
                     }
                 });
 
@@ -295,6 +302,7 @@ $(document).on("click", "#addItem .btnAdd", function(){
                 pilihan = pilihan.slice(0, -1)
 
                 let jawaban = $(form+" textarea[name='jawaban']").val();
+                jawaban = jawaban.replace(/"/g, '&quot;');
                 let penulisan = $(form+" select[name='penulisan']").val();
     
                 let eror = required(form);
@@ -697,13 +705,16 @@ $(document).on("click", "#editItem .btnEdit", function(){
                 let pilihan = "";
                 $(form+" [name='pilihan[]']").each(function(){
                     if($(this).val() != ""){
-                        pilihan += `"`+$(this).val()+`",`;
+                        data_pilihan = $(this).val();
+                        data_pilihan = data_pilihan.replace(/"/g, '&quot;');
+                        pilihan += `"`+data_pilihan+`",`;
                     }
                 });
                 // remove last character 
                 pilihan = pilihan.slice(0, -1)
 
                 let jawaban = $(form+" textarea[name='jawaban']").val();
+                jawaban = jawaban.replace(/"/g, '&quot;');
                 let penulisan = $(form+" select[name='penulisan']").val();
     
                 let eror = required(form);

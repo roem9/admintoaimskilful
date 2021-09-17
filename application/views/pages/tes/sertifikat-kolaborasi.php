@@ -209,10 +209,9 @@
     <body style="text-align: center">
         <div class="logo">
             <img src="<?= base_url()?>/assets/logo/<?= $id_tes?>.png" width=45 alt="">
-            <!-- <img src="<?= $config[1]['value']?>/assets/qrcode/<?= $id?>.png" width=60 alt=""> -->
         </div>
         <div class="qrcode">
-            <img src="<?= $config[1]['value']?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
+            <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
         </div>
         <div class="nilai"><p style="text-align: center; margin: 0px"><?= round($skor)?></p></div>
         <div class="nama"><p style="text-align: center; margin: 0px"><?= $nama?></p></div>

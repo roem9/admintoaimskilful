@@ -130,7 +130,7 @@ function load_item(id){
             }
             else if(data.item == "audio"){
 
-                item = `<center><audio controls controlsList="nodownload"><source src="`+url_base+`assets/myaudio/`+data.data+`" type='audio/mpeg'></audio></center>`
+                item = `<center><audio controls controlsList="nodownload"><source src="`+url_base+`assets/myaudio/`+data.data+`?t=`+Math.random()+`" type='audio/mpeg'></audio></center>`
 
             }
 
