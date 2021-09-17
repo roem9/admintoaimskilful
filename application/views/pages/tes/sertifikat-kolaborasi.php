@@ -208,7 +208,7 @@
 </head>
     <body style="text-align: center">
         <div class="logo">
-            <img src="<?= base_url()?>/assets/logo/<?= $id_tes?>.png" width=45 alt="">
+            <img src="<?= base_url()?>/assets/logo/<?= $id_tes?>.png" width=<?= $size_logo?> alt="">
         </div>
         <div class="qrcode">
             <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=70 alt="">

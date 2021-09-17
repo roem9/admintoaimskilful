@@ -275,6 +275,7 @@ class Tes extends MY_Controller {
 
         $peserta['config'] = $this->tes->config();
         $peserta['id_tes'] = $peserta['id_tes'];
+        $peserta['size_logo'] = $tes['size_logo'];
         
         $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
         $fontData = $defaultFontConfig['fontdata'];

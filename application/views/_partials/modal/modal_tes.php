@@ -137,6 +137,10 @@
                     <label for="">Tipe Tes</label>
                 </div>
                 <div class="form-floating mb-3">
+                    <input type="text" name="size_logo" class="form form-control required number">
+                    <label for="" class="col-form-label">Ukuran Logo</label>
+                </div>
+                <div class="form-floating mb-3">
                     <select name="pembahasan" class="form form-control required">
                         <option value="">Pilih</option>
                         <option value="Tidak">Tidak</option>
