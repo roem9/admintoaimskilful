@@ -69,3 +69,8 @@
 	transform-origin: 50% 50%;
 	transform: rotate(0) translate(0,0);
 }
+
+/* table, th, td {
+  border: 1px solid black;
+  padding: 1px 1px 1px 1px;
+} */
