@@ -46,8 +46,8 @@
         .qrcode{
             /* width: 210px; */
 			position: absolute;
-            right: 110px;
-			bottom: 30px;
+            right: 107px;
+			bottom: 27px;
             font-size: 35px;
             word-spacing: 3px;
         }
@@ -201,7 +201,7 @@
 </head>
     <body style="text-align: center">
         <div class="qrcode">
-            <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
+            <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=80 alt="">
         </div>
         <div class="nilai"><p style="text-align: center; margin: 0px"><b><?= round($skor)?></b></p></div>
         <div class="nama"><p style="text-align: center; margin: 0px"><?= strtoupper($nama)?></p></div>
