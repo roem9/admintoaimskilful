@@ -15,7 +15,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 viewport-fit=cover" /> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     
-    <link rel="icon" href="<?= base_url()?>assets/img/logo.png?t=<?= time()?>" type="image/icon type">
+    <link rel="icon" href="<?= base_url()?>assets/img/logo-bulat.png?t=<?= time()?>" type="image/icon type">
 
     <title>Admin - <?= $title?></title>
 

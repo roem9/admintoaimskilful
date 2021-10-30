@@ -76,6 +76,9 @@ class Tes extends MY_Controller {
             $tes = $this->tes->get_one("tes", ["md5(id_tes)" => $id_tes]);
             $soal = $this->tes->get_one("soal", ["id_soal" => $tes['id_soal']]);
             
+            $tahun = date('Y', strtotime($tes['tgl_tes']));
+            $bulan = getRomawi(date('m', strtotime($tes['tgl_tes'])));
+            
             $spreadsheet = new Spreadsheet;
 
             if($soal){
@@ -83,28 +86,28 @@ class Tes extends MY_Controller {
 
                     $semua_peserta = $this->tes->get_all("peserta_toefl", ["id_tes" => $tes['id_tes']]);
                     $file_data = "Hasil Keseluruhan";
-        
                     $spreadsheet->setActiveSheetIndex(0)
                                 ->setCellValue('A1', 'LIST PESERTA ' . $tes['nama_tes'])
                                 ->setCellValue('A2', 'No')
-                                ->setCellValue('B2', 'NIM')
-                                ->setCellValue('C2', 'Nama')
-                                ->setCellValue('D2', 'Gender')
-                                ->setCellValue('E2', 'TTL')
-                                ->setCellValue('F2', 'Alamat')
-                                ->setCellValue('G2', 'No. WA')
-                                ->setCellValue('H2', 'email')
-                                ->setCellValue('I2', 'Tujuan Tes')
-                                ->setCellValue('J2', 'Nilai Listening')
-                                ->setCellValue('J3', 'Benar')
-                                ->setCellValue('K3', 'Skor')
-                                ->setCellValue('L2', 'Nilai Structure')
-                                ->setCellValue('L3', 'Benar')
-                                ->setCellValue('M3', 'Skor')
-                                ->setCellValue('N2', 'Nilai Reading')
-                                ->setCellValue('N3', 'Benar')
-                                ->setCellValue('O3', 'Skor')
-                                ->setCellValue('P2', 'SKOR TOEFL');
+                                ->setCellValue('B2', 'No. Sertifikat')
+                                ->setCellValue('C2', 'NIM')
+                                ->setCellValue('D2', 'Nama')
+                                ->setCellValue('E2', 'Gender')
+                                ->setCellValue('F2', 'TTL')
+                                ->setCellValue('G2', 'Alamat')
+                                ->setCellValue('H2', 'No. WA')
+                                ->setCellValue('I2', 'email')
+                                ->setCellValue('J2', 'Tujuan Tes')
+                                ->setCellValue('K2', 'Nilai Listening')
+                                ->setCellValue('K3', 'Benar')
+                                ->setCellValue('L3', 'Skor')
+                                ->setCellValue('M2', 'Nilai Structure')
+                                ->setCellValue('M3', 'Benar')
+                                ->setCellValue('N3', 'Skor')
+                                ->setCellValue('O2', 'Nilai Reading')
+                                ->setCellValue('O3', 'Benar')
+                                ->setCellValue('P3', 'Skor')
+                                ->setCellValue('Q2', 'SKOR TOEFL');
     
                     $spreadsheet->getActiveSheet()->mergeCells('A2:A3')
                                 ->mergeCells('B2:B3')
@@ -115,33 +118,36 @@ class Tes extends MY_Controller {
                                 ->mergeCells('G2:G3')
                                 ->mergeCells('H2:H3')
                                 ->mergeCells('I2:I3')
-                                ->mergeCells('J2:K2')
-                                ->mergeCells('L2:M2')
-                                ->mergeCells('N2:O2')
-                                ->mergeCells('P2:P3')
-                                ->mergeCells('A1:P1');
+                                ->mergeCells('J2:J3')
+                                ->mergeCells('K2:L2')
+                                ->mergeCells('M2:N2')
+                                ->mergeCells('O2:P2')
+                                ->mergeCells('Q2:Q3')
+                                ->mergeCells('A1:Q1');
                     
                     $kolom = 4;
                     $nomor = 1;
                     foreach($semua_peserta as $peserta) {
-            
+                            $peserta['no_doc'] = "{$peserta['no_doc']}/AIMTP/{$bulan}/{$tahun}";
+
                             $spreadsheet->setActiveSheetIndex(0)
                                         ->setCellValue('A' . $kolom, $nomor)
-                                        ->setCellValue('B' . $kolom, $peserta['nim'])
-                                        ->setCellValue('C' . $kolom, $peserta['nama'])
-                                        ->setCellValue('D' . $kolom, $peserta['jk'])
-                                        ->setCellValue('E' . $kolom, $peserta['t4_lahir'] . ", " . tgl_indo($peserta['tgl_lahir']))
-                                        ->setCellValue('F' . $kolom, $peserta['alamat'])
-                                        ->setCellValue('G' . $kolom, $peserta['no_wa'])
-                                        ->setCellValue('H' . $kolom, $peserta['email'])
-                                        ->setCellValue('I' . $kolom, $peserta['tujuan_tes'])
-                                        ->setCellValue('J' . $kolom, $peserta['nilai_listening'])
-                                        ->setCellValue('K' . $kolom, poin("Listening", $peserta['nilai_listening']))
-                                        ->setCellValue('L' . $kolom, $peserta['nilai_structure'])
-                                        ->setCellValue('M' . $kolom, poin("Structure", $peserta['nilai_structure']))
-                                        ->setCellValue('N' . $kolom, $peserta['nilai_reading'])
-                                        ->setCellValue('O' . $kolom, poin("Reading", $peserta['nilai_reading']))
-                                        ->setCellValue('P' . $kolom, skor($peserta['nilai_listening'], $peserta['nilai_structure'], $peserta['nilai_reading']));
+                                        ->setCellValue('B' . $kolom, $peserta['no_doc'])
+                                        ->setCellValue('C' . $kolom, $peserta['nim'])
+                                        ->setCellValue('D' . $kolom, $peserta['nama'])
+                                        ->setCellValue('E' . $kolom, $peserta['jk'])
+                                        ->setCellValue('F' . $kolom, $peserta['t4_lahir'] . ", " . tgl_indo($peserta['tgl_lahir']))
+                                        ->setCellValue('G' . $kolom, $peserta['alamat'])
+                                        ->setCellValue('H' . $kolom, $peserta['no_wa'])
+                                        ->setCellValue('I' . $kolom, $peserta['email'])
+                                        ->setCellValue('J' . $kolom, $peserta['tujuan_tes'])
+                                        ->setCellValue('K' . $kolom, $peserta['nilai_listening'])
+                                        ->setCellValue('L' . $kolom, poin("Listening", $peserta['nilai_listening']))
+                                        ->setCellValue('M' . $kolom, $peserta['nilai_structure'])
+                                        ->setCellValue('N' . $kolom, poin("Structure", $peserta['nilai_structure']))
+                                        ->setCellValue('O' . $kolom, $peserta['nilai_reading'])
+                                        ->setCellValue('P' . $kolom, poin("Reading", $peserta['nilai_reading']))
+                                        ->setCellValue('Q' . $kolom, skor($peserta['nilai_listening'], $peserta['nilai_structure'], $peserta['nilai_reading']));
             
                             $kolom++;
                             $nomor++;

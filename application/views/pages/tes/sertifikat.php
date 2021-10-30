@@ -46,7 +46,7 @@
         .qrcode{
             /* width: 210px; */
 			position: absolute;
-            right: 135px;
+            right: 110px;
 			bottom: 30px;
             font-size: 35px;
             word-spacing: 3px;
@@ -68,7 +68,7 @@
             width: 470px;
 			position: absolute;
             left: 160px;
-			top: 145px;
+			top: 140px;
             font-size: 24px;
             font-family: 'rockb';
             word-spacing: 3px;
@@ -78,8 +78,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 207px;
-			top: 190px;
+            left: 315px;
+			top: 180px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -89,8 +89,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 207px;
-			top: 207px;
+            left: 315px;
+			top: 197px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -100,8 +100,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 310px;
-			top: 224px;
+            left: 315px;
+			top: 214px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -111,8 +111,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 310px;
-			top: 241px;
+            left: 315px;
+			top: 232px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -135,7 +135,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 333px;
+			top: 331px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -146,7 +146,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 353px;
+			top: 351px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -157,7 +157,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 373px;
+			top: 370px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -168,7 +168,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 392px;
+			top: 389px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -176,8 +176,8 @@
 
         .tgl{
 			position: absolute;
-            left: 190px;
-			bottom: 73px;
+            left: 187px;
+			bottom: 65px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -185,8 +185,8 @@
 
         .tgl_akhir{
 			position: absolute;
-            left: 190px;
-			bottom: 57px;
+            left: 187px;
+			bottom: 47px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -203,8 +203,8 @@
         <div class="qrcode">
             <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=70 alt="">
         </div>
-        <div class="nilai"><p style="text-align: center; margin: 0px"><?= round($skor)?></p></div>
-        <div class="nama"><p style="text-align: center; margin: 0px"><?= $nama?></p></div>
+        <div class="nilai"><p style="text-align: center; margin: 0px"><b><?= round($skor)?></b></p></div>
+        <div class="nama"><p style="text-align: center; margin: 0px"><?= strtoupper($nama)?></p></div>
         <div class="ttl"><p style="margin: 0px"><?= date("M d Y", strtotime($tgl_lahir))?></p></div>
         <div class="t4"><p style="text-align: center; margin: 0px;"><?= $t4_lahir?></p></div>
         <div class="gender"><p style="margin: 0px"><?= $jk?></p></div>
@@ -214,7 +214,7 @@
         <div class="structure"><p style="text-align: center; margin: 0px"><?= $structure?></p></div>
         <div class="reading"><p style="text-align: center; margin: 0px"><?= $reading?></p></div>
         <div class="no_doc"><p style="margin: 0px"><?= $no_doc?></p></div>
-        <div class="tgl"><p style="text-align: center; margin: 0px"><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_tes)))?></p></div>
-        <div class="tgl_akhir"><p style="text-align: center; margin: 0px"><?= tgl_sertifikat(date("d-m-Y", strtotime('+6 month', strtotime($tgl_tes))))?></p></div>
+        <div class="tgl"><p style="text-align: center; margin: 0px"><b><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_tes)))?></b></p></div>
+        <div class="tgl_akhir"><p style="text-align: center; margin: 0px"><b><?= tgl_sertifikat(date("d-m-Y", strtotime('+6 month', strtotime($tgl_tes))))?></b></p></div>
     </body>
 </html>
