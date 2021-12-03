@@ -33,6 +33,28 @@
 
         return $hari . " of " . $bulan . " " . $tahun;
     }
+
+    function tgl_lahir($tgl){
+        $data = explode("-", $tgl);
+        $tahun = $data[0];
+        $bulan = $data[1];
+        $hari = $data[2];
+
+        if($bulan == "01") $bulan = "January";
+        if($bulan == "02") $bulan = "February";
+        if($bulan == "03") $bulan = "March";
+        if($bulan == "04") $bulan = "April";
+        if($bulan == "05") $bulan = "May";
+        if($bulan == "06") $bulan = "June";
+        if($bulan == "07") $bulan = "July";
+        if($bulan == "08") $bulan = "August";
+        if($bulan == "09") $bulan = "September";
+        if($bulan == "10") $bulan = "October";
+        if($bulan == "11") $bulan = "November";
+        if($bulan == "12") $bulan = "December";
+
+        return $bulan . " " . $hari . ", " . $tahun;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -46,15 +68,15 @@
         .logo{
             /* width: 210px; */
 			position: absolute;
-            right: 260px;
+            right: 330px;
 			top: 18px;
         }
 
         .qrcode{
             /* width: 210px; */
 			position: absolute;
-            right: 107px;
-			bottom: 27px;
+            right: 112px;
+			bottom: 33px;
             font-size: 35px;
             word-spacing: 3px;
         }
@@ -64,7 +86,7 @@
             width: 140px;
 			position: absolute;
             right: 15px;
-			top: 25px; 
+			top: 24px; 
             font-size: 12px;
             font-family: 'times';
             word-spacing: 3px;
@@ -75,7 +97,7 @@
             width: 470px;
 			position: absolute;
             left: 160px;
-			top: 140px;
+			top: 148px;
             font-size: 24px;
             font-family: 'rockb';
             word-spacing: 3px;
@@ -85,8 +107,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 315px;
-			top: 180px;
+            left: 310px;
+			top: 189px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -96,8 +118,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 315px;
-			top: 197px;
+            left: 310px;
+			top: 206px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -107,8 +129,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 315px;
-			top: 214px;
+            left: 310px;
+			top: 223px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -118,8 +140,8 @@
             /* background-color: red; */
             width: 129px;
 			position: absolute;
-            left: 315px;
-			top: 232px;
+            left: 310px;
+			top: 241px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -142,7 +164,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 331px;
+			top: 333px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -153,7 +175,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 351px;
+			top: 353px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -164,7 +186,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 370px;
+			top: 372px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -175,7 +197,7 @@
             width: 135px;
 			position: absolute;
             right: 263px;
-			top: 389px;
+			top: 392px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -183,8 +205,9 @@
 
         .tgl{
 			position: absolute;
-            left: 187px;
-			bottom: 65px;
+            left: 110px;
+			/* bottom: 65px; */
+			bottom: 38px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
@@ -192,15 +215,15 @@
 
         .tgl_akhir{
 			position: absolute;
-            left: 187px;
-			bottom: 47px;
+            left: 110px;
+			bottom: 21px;
             font-size: 14px;
             font-family: 'times';
             word-spacing: 3px;
         }
 
         @page :first {
-            background-image: url("<?= base_url()?>assets/img/sertifikat-kolaborasi.jpg");
+            background-image: url("<?= base_url()?>assets/img/sertifikat.jpg");
             background-image-resize: 6;
         }
         
@@ -211,11 +234,11 @@
             <img src="<?= base_url()?>/assets/logo/<?= $id_tes?>.png" width=<?= $size_logo?> alt="">
         </div>
         <div class="qrcode">
-            <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=80 alt="">
+            <img src="<?= base_url()?>/assets/qrcode/<?= $id?>.png" width=75 alt="">
         </div>
         <div class="nilai"><p style="text-align: center; margin: 0px"><b><?= round($skor)?></b></p></div>
         <div class="nama"><p style="text-align: center; margin: 0px"><?= strtoupper($nama)?></p></div>
-        <div class="ttl"><p style="margin: 0px"><?= date("M d Y", strtotime($tgl_lahir))?></p></div>
+        <div class="ttl"><p style="margin: 0px"><?= tgl_lahir(date("Y-m-j", strtotime($tgl_lahir)))?></p></div>
         <div class="t4"><p style="text-align: center; margin: 0px;"><?= $t4_lahir?></p></div>
         <div class="gender"><p style="margin: 0px"><?= $jk?></p></div>
         <div class="country"><p style="margin: 0px"><?= $country?></p></div>
