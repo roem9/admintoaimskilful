@@ -68,7 +68,7 @@
         .logo{
             /* width: 210px; */
 			position: absolute;
-            right: 330px;
+            left: 50px;
 			top: 18px;
         }
 
@@ -205,7 +205,7 @@
 
         .tgl{
 			position: absolute;
-            left: 110px;
+            left: 155px;
 			/* bottom: 65px; */
 			bottom: 38px;
             font-size: 14px;
@@ -215,7 +215,7 @@
 
         .tgl_akhir{
 			position: absolute;
-            left: 110px;
+            left: 155px;
 			bottom: 21px;
             font-size: 14px;
             font-family: 'times';
