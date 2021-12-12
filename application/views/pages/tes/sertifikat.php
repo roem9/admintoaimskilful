@@ -105,7 +105,7 @@
 
         .ttl{
             /* background-color: red; */
-            width: 129px;
+            /* width: 129px; */
 			position: absolute;
             left: 310px;
 			top: 189px;
@@ -116,7 +116,7 @@
 
         .gender{
             /* background-color: red; */
-            width: 129px;
+            /* width: 129px; */
 			position: absolute;
             left: 310px;
 			top: 206px;
@@ -127,7 +127,7 @@
         
         .country{
             /* background-color: red; */
-            width: 129px;
+            /* width: 129px; */
 			position: absolute;
             left: 310px;
 			top: 223px;
@@ -138,7 +138,7 @@
 
         .language{
             /* background-color: red; */
-            width: 129px;
+            /* width: 129px; */
 			position: absolute;
             left: 310px;
 			top: 241px;
